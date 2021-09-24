@@ -1,3 +1,5 @@
+package ObjectsAndClasses;
+
 import java.util.Arrays;
 
 public class Sorting {
@@ -9,6 +11,18 @@ public class Sorting {
     }
 
     public static int[] bubbleSort(int[] arr) {
+        // soldaki eleman ile sağdaki elemanı kıyasla eğer büyükse yerlerini değiştir
+        // index'i 1 arttır.
+        for (int j = 0; j < arr.length; j++) {
+            for (int i = 0; i < arr.length - 1; i++) {
+                if (arr[i + 1] < arr[i]) {
+                    switchConsecutiveNumbers(arr, i);
+                }
+            }
+        }
+        return arr;
+    }
+    public int[] bubbleSort2(int[] arr) {
         // soldaki eleman ile sağdaki elemanı kıyasla eğer büyükse yerlerini değiştir
         // index'i 1 arttır.
         for (int j = 0; j < arr.length; j++) {

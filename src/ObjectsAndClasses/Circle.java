@@ -1,10 +1,11 @@
 package ObjectsAndClasses;
 
 public class Circle {
-    // statik özellikler = property = attribute
-    int radius;
+    // statik özellikler = property = attribute = instance variables (static değilse)
+    static double pi = 3.14;
+    int radius = 1;
     int lineWidth;
-    String lineColor;
+    String lineColor = "Black";
     int xCoordinate;
     int yCoordinate;
     // data field: property'lerin bulunduğu kısım
@@ -70,6 +71,7 @@ public class Circle {
     }
 
     public double calculateArea() {
+        System.out.println("pi = " + pi);
         return Math.PI * radius * radius;
     }
 

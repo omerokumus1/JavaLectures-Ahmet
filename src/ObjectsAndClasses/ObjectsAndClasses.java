@@ -1,5 +1,12 @@
 package ObjectsAndClasses;
 
+
+import java.awt.*;
+import java.awt.geom.Point2D;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.Random;
+
 public class ObjectsAndClasses {
     public static void main(String[] args) {
         // Instance = obje = object
@@ -47,8 +54,63 @@ public class ObjectsAndClasses {
 
         // Ch 9.5+
         // what is reference? reference type and reference variable?
+
+         // c3 is called reference variable, the value of c3 is called reference (address), Circle is called reference type
+        System.out.println(c3);
+
         // object vs object reference variable
-        // instance method and instance variable (why no static)
+
+        /*
+         instance method and instance variable (why no static)
+         instance method: class içerisinde yazılan static olmayan methodlardır
+         instance variable: class içerisinde yazılan static olmayan objeye ait olan property'lerdir
+         static yazıyorsa static method veya static variable olur, yazmıyorsa instance method veya instance variable olur
+
+         static methodlar veya değişkenler class'a aittir. Bunları kullanmak için obje üretmeye gerek yoktur.
+         instance methodlar  veya değişkenler ise özel bir objeye aittir. Bunları kullanmak için obje üretmek zorunludur.
+        */
+
+        int[] arr = {3, 2, 5, 4, 6, 1};
+        Sorting sorter = new Sorting();
+        System.out.println("Static BubbleSort: "+Arrays.toString(Sorting.bubbleSort(arr)));
+        System.out.println("Non-static BubbleSort: "+Arrays.toString(sorter.bubbleSort(arr)));
+        System.out.println("c1 Area: " + c1.calculateArea());
+        System.out.println("c3 Area: " + c3.calculateArea());
+        Math.abs(-2);
+
         // anonymous object
+        System.out.println("Anonymous object area: " + (new Circle(3, 1)).calculateArea() );
+
+        System.out.println("A1: " + new Circle(1,2));
+        System.out.println("A2: " + new Circle(1,2));
+        System.out.println("A3: " + new Circle(1,2));
+        System.out.println("A4: " + new Circle(1,2));
+        System.out.println("A5: " + new Circle(1,2));
+//        Circle c4 = createCircleWithNull();
+//        System.out.println(c4.radius);
+
+        // garbage collector: kullanılmayan objeleri otomatik olarak toplar
+
+        // Date class
+        Date date = new Date();
+        System.out.println("Elapsed time: " + date.getTime()); // Date.getTime()
+        System.out.println("toString: " + date.toString()); // Date.toString()
+
+        // Random class
+        Random random = new Random();
+        System.out.println(random.nextInt());
+        System.out.println(random.nextInt(10));
+        System.out.println(random.nextDouble()*10 + 5);
+
+        // Point2D
+        Point xy = new Point(3,4);
+        Point xy2 = xy.getLocation();
+        System.out.println(xy2.getX() + ", " + xy2.getY());
     }
+
+    public static Circle createCircleWithNull(){
+        Circle c = null;
+        return c;
+    }
+
 }
