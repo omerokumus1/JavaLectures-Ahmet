@@ -1,0 +1,6 @@
+- objelerden data field oluştur
+- liste kullan
+- find methodu yaz
+- ekle methodu
+- sil methodu
+- toString methodu

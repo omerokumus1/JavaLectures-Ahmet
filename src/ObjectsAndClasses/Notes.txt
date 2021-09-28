@@ -1,0 +1,9 @@
+- toString
++ pass-by-value, pass-by-reference
+- private contructor
++ Circle classında: // private olabilir (Sonra anlatılacak)
++ Objeleri methodlara gönderme
++ Obje return etme
++ objelerden liste/array oluştur
+- wanted circle to string ekle
+- foreach

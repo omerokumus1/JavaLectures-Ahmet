@@ -50,6 +50,7 @@ public class Circle {
             this.radius = 1;
     }
 
+    // private olabilir (Sonra anlatılacak)
     public void checkAndAssignLineWidth(int lineWidth){
         if (lineWidth > 0)
             this.lineWidth = lineWidth;

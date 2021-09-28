@@ -1,6 +1,7 @@
 import java.util.Arrays;
 
 public class Methods {
+
     public static void main(String[] args) {
         System.out.println(Math.abs(-3)); // code reusability
 //        int a = square(5);
@@ -53,6 +54,36 @@ public class Methods {
         System.out.println("Concatenation: "+Arrays.toString(result));
 
         System.out.println("Array remove: " + Arrays.toString( arrayRemove(arr2, 4)));
+
+        // pass-by-value
+        int x = 0;
+        passByValue(x);
+        System.out.println("in main x = " + x);
+        x = 3;
+        passByValue(x);
+        System.out.println("in main x = " + x);
+
+        // pass-by-reference
+        int[] arr = {1,2,3,4,5};
+        System.out.println(arr);
+        passByReference(arr);
+        System.out.println("in main: " + Arrays.toString(arr));
+
+    }
+    public static void dummyFunc(){
+        int x = 3; // local variable
+    }
+    public static void passByReference(int[] arr){
+        System.out.println("in passByReference: " + Arrays.toString(arr));
+        arr[0] = -1;
+        System.out.println("in passByReference: " + Arrays.toString(arr));
+
+    }
+
+    public static void passByValue(int x){
+        System.out.println("in passByValue method x = " + x);
+        x = 7;
+        System.out.println("in passByValue method x = " + x);
     }
 
     public static int[] arrayRemove(int[] source, int item){

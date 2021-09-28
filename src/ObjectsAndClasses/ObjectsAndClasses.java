@@ -2,7 +2,6 @@ package ObjectsAndClasses;
 
 
 import java.awt.*;
-import java.awt.geom.Point2D;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Random;
@@ -106,6 +105,83 @@ public class ObjectsAndClasses {
         Point xy = new Point(3,4);
         Point xy2 = xy.getLocation();
         System.out.println(xy2.getX() + ", " + xy2.getY());
+
+        /* Visibility modifiers
+            1. private **
+            2. protected
+            3. default (herhangi bir şey yazmazsan bu gelir)
+            4. public **
+         */
+        // Data encapsulation
+        Square s1 = new Square();
+        // getter methodunu kullanma
+        s1.getEdge();
+        // getter method: private yapılmaz, parametre almaz, basit return yapar, bir yan üründür (?), static olmaz
+        Circle c5 = new Circle(3, 2);
+        Circle c6 = new Circle(-1, -4); // kısmi encapsulation
+        System.out.println("c5: radius = " + c5.radius + ", lineWidth = " + c5.lineWidth);
+        System.out.println("c6: radius = " + c6.radius + ", lineWidth = " + c6.lineWidth);
+        // problem!! güvenlik açığı var, radius -1 olamazken -1 değer atayabildik.
+        c6.radius = -1;
+        c6.lineWidth = -4;
+        System.out.println("c6: radius = " + c6.radius + ", lineWidth = " + c6.lineWidth);
+
+        // yukarıdaki problemin çözümü: setter methodu: private olabilir (mantığa göre), parametre alır veya almaz,
+        // logic implement eder, static olmaz
+        Square s2 = new Square(-5);
+        Square s3 = new Square(5);
+        System.out.println("s2: edge = " + s2.getEdge());
+        System.out.println("s3: edge = " + s3.getEdge());
+
+        Circle c7 = new Circle(5, 1);
+        Circle c8 = new Circle(5, 2);
+        Circle c9 = new Circle(6, 2);
+        Circle c10 = new Circle(7, 3);
+
+        // Objelerden array üretme
+        Circle[] circles = {c7, c8, c9, c10};
+
+        // Objeleri methoda gönderme ve obje return etme
+//        Circle wantedCircle = findCircleByRadius(circles, 10);
+//
+//        if (wantedCircle != null)
+//            System.out.println("wanted circle: radius = " + wantedCircle.radius + ", line color = " + wantedCircle.lineColor
+//                            + ", line width = " + wantedCircle.lineWidth); // toString ekle
+//        else
+//            System.out.println("Not found.");
+
+        Circle[] foundCircles = findCircleByRadius(circles, 5);
+        for (int i = 0; i < foundCircles.length; i++) {
+            printCircle(foundCircles[i]);
+        }
+
+    }
+
+    public static void printCircle(Circle circle){
+        System.out.println("circle: radius = " + circle.radius + ", line color = " + circle.lineColor
+                            + ", line width = " + circle.lineWidth);
+    }
+
+    public static Circle[] findCircleByRadius(Circle[] circles, int radius){
+        int size = 0;
+        // find size
+        for (int i = 0; i < circles.length; i++) {
+            if (circles[i].radius == radius)
+                size++;
+        }
+
+        // find circles
+        Circle[] foundCircles = new Circle[size];
+        int index = 0;
+        for (int i = 0; i < circles.length; i++) {
+            if (circles[i].radius == radius) {
+                foundCircles[index] = circles[i];
+                index++;
+            }
+        }
+
+
+        return foundCircles; // eğer bulamazsan
     }
 
     public static Circle createCircleWithNull(){
