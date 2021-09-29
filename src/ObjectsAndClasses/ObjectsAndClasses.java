@@ -155,6 +155,8 @@ public class ObjectsAndClasses {
             printCircle(foundCircles[i]);
         }
 
+        System.out.println(Math.sqrt(-1));
+
     }
 
     public static void printCircle(Circle circle){
