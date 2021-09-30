@@ -157,6 +157,19 @@ public class ObjectsAndClasses {
 
         System.out.println(Math.sqrt(-1));
 
+        // foreach
+        Tablet[] tablets = {
+                new Tablet("Samsung", "S7", 5000, "AMOLED", "13MP"),
+                new Tablet("Samsung", "S7+", 7500, "AMOLED+", "13MP"),
+                new Tablet("Samsung", "A7", 1500, "LCD", "13MP"),
+                new Tablet("Apple", "Air", 7500, "IPS", "13MP"),
+                new Tablet("Apple", "Pro", 15000, "FULL AMOLED", "13MP"),
+        };
+        for (Tablet item: tablets) {
+            item.setPrice(item.getPrice() * 2 );
+            System.out.println(item);
+        }
+
     }
 
     public static void printCircle(Circle circle){

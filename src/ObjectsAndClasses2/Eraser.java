@@ -16,4 +16,20 @@ public class Eraser {
     public String getColor() {
         return color;
     }
+
+    public boolean equals(Eraser eraser){
+        boolean areBrandsEqual = brand == eraser.brand;
+        boolean areColorsEqual = color == eraser.color;
+
+        return areBrandsEqual && areColorsEqual;
+    }
+
+    public String toString(){
+        String content = "";
+
+        content += "Brand: " + brand +
+                "\nColor: " + color;
+
+        return content;
+    }
 }

@@ -15,6 +15,7 @@ public class Box {
     private final int BOOK_CAPACITY = 3;
 
     private Earphone earphone;
+    private int numberOfEarphone;
 
     private Eraser[] erasers;
     private int numberOfErasers;
@@ -23,6 +24,8 @@ public class Box {
     private Pencil[] pencils;
     private int numberOfPencils;
     private final int PENCIL_CAPACITY = 4;
+
+    private Calculator calculator;
 
     Box() {
         initializeDataField();
@@ -40,7 +43,15 @@ public class Box {
         setPencils(pencils);
     }
 
+    public void setCalculator(Calculator calculator){
+        this.calculator = calculator;
+    }
+    // remove yazılabilir. (Earphone gibi davranacak)
 
+
+    public Calculator getCalculator() {
+        return calculator;
+    }
 
     public void addBook(Book book) {
 
@@ -83,7 +94,7 @@ public class Box {
     }
 
     private boolean isBookAvailable(Book book) {
-        for (int i = 0; i < books.length; i++) {
+        for (int i = 0; i < numberOfBooks; i++) {
             if (book.equals(books[i])) {
                 return true;
             }
@@ -100,27 +111,119 @@ public class Box {
 
 
     public void addEraser(Eraser eraser) {
-
+        if (!isEraserAvailable(eraser) && !isEraserFull()) {
+            erasers[numberOfErasers] = eraser;
+            numberOfErasers++;
+            System.out.println("Eraser section is updated!!\nNew number of eraser: " + numberOfErasers);
+        } else if (isEraserAvailable(eraser)) {
+            System.out.println("Eraser is already available.");
+        } else if (isEraserFull()) {
+            System.out.println("No more room left for erasers");
+        }
     }
-
-    public void addPencil(Pencil pencil) {
-
-    }
-
-
-
 
 
     public void removeEraser(Eraser eraser) {
+        int eraserIndex = getEraserIndex(eraser);
+        if (eraserIndex != -1) {
+            erasers[eraserIndex] = null;
+            numberOfErasers--;
+            arrangeErasers(eraserIndex);
 
+        } else
+            System.out.println("Eraser is not available.");
+
+    }
+
+    private void arrangeErasers(int eraserIndex) {
+        for (int i = eraserIndex; i < erasers.length - 1; i++) {
+            erasers[i] = erasers[i + 1];
+        }
+        erasers[erasers.length - 1] = null;
+    }
+
+    private boolean isEraserFull() {
+        return numberOfErasers == erasers.length;
+    }
+
+    private boolean isEraserAvailable(Eraser eraser) {
+        for (int i = 0; i < numberOfErasers; i++) {
+            if (eraser.equals(erasers[i])) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private int getEraserIndex(Eraser eraser) {
+        int index = -1;
+        for (int i = 0; i < erasers.length; i++) {
+            if (eraser.equals(erasers[i])) {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
+
+
+
+    public void addPencil(Pencil pencil) {
+        if (!isPencilAvailable(pencil) && !isPencilFull()) {
+            pencils[numberOfPencils] = pencil;
+            numberOfPencils++;
+        } else if (isPencilAvailable(pencil)) {
+            System.out.println("Pencil already available!!");
+        } else if (isPencilFull()) {
+            System.out.println("No more available room for pencil!");
+        }
     }
 
     public void removePencil(Pencil pencil) {
+        int pencilIndex = getPencilIndex(pencil);
+        if (pencilIndex != -1) {
+            pencils[pencilIndex] = null;
+            numberOfPencils--;
+            arrangePencils(pencilIndex);
+        } else
+            System.out.println("Pencil is not available.");
+    }
+
+    private void arrangePencils(int pencilIndex) {
+        for (int i = pencilIndex; i < pencils.length - 1; i++) {
+            pencils[i] = pencils[i + 1];
+        }
+        pencils[pencils.length - 1] = null;
+    }
+
+    private boolean isPencilFull() {
+        return numberOfPencils == pencils.length;
 
     }
 
+    private boolean isPencilAvailable(Pencil pencil) {
+        for (int i = 0; i < numberOfPencils; i++) {
+            if (pencil.equals(pencils[i])) ;
+            return true;
+        }
+        return false;
+    }
+
+    private int getPencilIndex(Pencil pencil) {
+        int index = -1;
+        for (int i = 0; i < pencils.length; i++) {
+            if (pencil.equals(pencils[i])) {
+                index = i;
+                break;
+            }
+        }
+        return index;
+    }
+
+
     public void removeEarphone() {
         this.earphone = null;
+        numberOfEarphone--;
     }
 
 
@@ -131,6 +234,7 @@ public class Box {
         numberOfBooks = 0;
         numberOfErasers = 0;
         numberOfPencils = 0;
+        numberOfEarphone = 0;
     }
 
     public void setBooks(Book[] books) {
@@ -154,6 +258,8 @@ public class Box {
 
     public void setEarphone(Earphone earphone) {
         this.earphone = earphone;
+        numberOfEarphone++;
+
     }
 
     public void setErasers(Eraser[] erasers) {
@@ -224,5 +330,56 @@ public class Box {
         return PENCIL_CAPACITY;
     }
 
+
+    public String toString(){
+        String content = "";
+
+        // add books
+        content = addBooksToContent(content);
+
+        // add earphone
+        content = addEarphoneToContent(content);
+
+        // add erasers
+        content = addErasersToContent(content);
+
+        // add pencils
+        content = addPencilsToContent(content);
+
+        return content;
+
+    }
+
+    private String addBooksToContent(String content) {
+        content += "There are " + numberOfBooks + " books. Which are:\n";
+        for (int i = 0; i < numberOfBooks; i++) {
+            content += (i+1) + ". Book:\n" + books[i].toString() + "\n";
+        }
+        return content;
+    }
+
+    private String addEarphoneToContent(String content) {
+        content += "There is " + numberOfEarphone + " earphone.\n";
+        for (int i = 0; i < numberOfEarphone; i++) {
+            content += earphone.toString() + "\n";
+        }
+        return content;
+    }
+
+    private String addErasersToContent(String content) {
+        content += "There are " + numberOfErasers + " erasers. Which are:\n";
+        for (int i = 0; i < numberOfErasers; i++) {
+            content += (i+1) + ". Eraser:\n" + erasers[i].toString() + "\n";
+        }
+        return content;
+    }
+
+    private String addPencilsToContent(String content) {
+        content += "There are " + numberOfPencils + " pencils. Which are:\n";
+        for (int i = 0; i < numberOfPencils; i++) {
+            content += (i+1) + ". Pencil:\n" + pencils[i].toString() + "\n";
+        }
+        return content;
+    }
 
 }

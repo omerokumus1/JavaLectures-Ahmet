@@ -40,4 +40,16 @@ public class Earphone {
     public boolean isWireless() {
         return isWireless;
     }
+
+    public String toString(){
+        String content = "";
+        content += "Brand: " + brand +
+                "\nModel: " + model +
+                "\nType: " + type +
+                "\nColor: " + color +
+                "\nVolume level: " + volumeLevel +
+                "\nIs wireless?: " + isWireless;
+
+        return content;
+    }
 }

@@ -16,4 +16,19 @@ public class Pencil {
     public String getColor() {
         return color;
     }
+    public boolean equals(Pencil pencil){
+        boolean areBrandsEqual = brand == pencil.brand;
+        boolean areColorsEqual = color == pencil.color;
+
+        return areBrandsEqual && areColorsEqual;
+    }
+
+    public String toString(){
+        String content = "";
+
+        content += "Brand: " + brand +
+                "\nColor: " + color;
+
+        return content;
+    }
 }

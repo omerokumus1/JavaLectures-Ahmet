@@ -44,4 +44,17 @@ public class Book {
 
         return areNamesEqual && areColorsEqual && arePageNumberEqual && areAuthorsEqual && areGenresEqual;
     }
+
+    public String toString(){
+        String content = "";
+
+        content += "Name: " + bookName +
+                "\nColor: " + bookColor +
+                "\nPage number: " + totalPageNumber +
+                "\nAuthor: " + authorName +
+                "\nGenre: " + genre;
+
+        return content;
+    }
+
 }
