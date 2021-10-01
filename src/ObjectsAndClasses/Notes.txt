@@ -5,6 +5,6 @@
 + Objeleri methodlara gönderme
 + Obje return etme
 + objelerden liste/array oluştur
-- foreach
++ foreach
 - string builder
 - unit test

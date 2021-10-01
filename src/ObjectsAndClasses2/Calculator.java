@@ -9,7 +9,7 @@ package ObjectsAndClasses2;
 public class Calculator {
     private String brand;
     private String color;
-    Screen screen = new Screen();
+    Screen screen = new Screen(); // aggregation
     private int numberCount = 0;
     Button[] buttons = {
             new Button("0"),

@@ -22,6 +22,21 @@ public class Sorting {
         }
         return arr;
     }
+
+    public static double[] bubbleSort(double[] arr) {
+        // soldaki eleman ile sağdaki elemanı kıyasla eğer büyükse yerlerini değiştir
+        // index'i 1 arttır.
+        for (int j = 0; j < arr.length; j++) {
+            for (int i = 0; i < arr.length - 1; i++) {
+                if (arr[i + 1] < arr[i]) {
+                    switchConsecutiveNumbers(arr, i);
+                }
+            }
+        }
+        return arr;
+    }
+
+
     public int[] bubbleSort2(int[] arr) {
         // soldaki eleman ile sağdaki elemanı kıyasla eğer büyükse yerlerini değiştir
         // index'i 1 arttır.
@@ -40,4 +55,10 @@ public class Sorting {
         arr[i] = arr[i + 1];
         arr[i + 1] = temp;
     }
+    private static void switchConsecutiveNumbers(double[] arr, int i) {
+        double temp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
+    }
+
 }

@@ -2,6 +2,7 @@ package ObjectsAndClasses;
 
 
 import java.awt.*;
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Random;
@@ -35,7 +36,7 @@ public class ObjectsAndClasses {
         c1.changeLineColor("Blue");
         System.out.println("New color: " + c1.lineColor);
 
-        c1.move(3,4);
+        c1.move(3, 4);
         System.out.println("New center coordinates: (" + c1.xCoordinate + ", " + c1.yCoordinate + ")");
 
         // instantiation but beautiful
@@ -54,7 +55,7 @@ public class ObjectsAndClasses {
         // Ch 9.5+
         // what is reference? reference type and reference variable?
 
-         // c3 is called reference variable, the value of c3 is called reference (address), Circle is called reference type
+        // c3 is called reference variable, the value of c3 is called reference (address), Circle is called reference type
         System.out.println(c3);
 
         // object vs object reference variable
@@ -71,20 +72,20 @@ public class ObjectsAndClasses {
 
         int[] arr = {3, 2, 5, 4, 6, 1};
         Sorting sorter = new Sorting();
-        System.out.println("Static BubbleSort: "+Arrays.toString(Sorting.bubbleSort(arr)));
-        System.out.println("Non-static BubbleSort: "+Arrays.toString(sorter.bubbleSort(arr)));
+        System.out.println("Static BubbleSort: " + Arrays.toString(Sorting.bubbleSort(arr)));
+        System.out.println("Non-static BubbleSort: " + Arrays.toString(sorter.bubbleSort(arr)));
         System.out.println("c1 Area: " + c1.calculateArea());
         System.out.println("c3 Area: " + c3.calculateArea());
         Math.abs(-2);
 
         // anonymous object
-        System.out.println("Anonymous object area: " + (new Circle(3, 1)).calculateArea() );
+        System.out.println("Anonymous object area: " + (new Circle(3, 1)).calculateArea());
 
-        System.out.println("A1: " + new Circle(1,2));
-        System.out.println("A2: " + new Circle(1,2));
-        System.out.println("A3: " + new Circle(1,2));
-        System.out.println("A4: " + new Circle(1,2));
-        System.out.println("A5: " + new Circle(1,2));
+        System.out.println("A1: " + new Circle(1, 2));
+        System.out.println("A2: " + new Circle(1, 2));
+        System.out.println("A3: " + new Circle(1, 2));
+        System.out.println("A4: " + new Circle(1, 2));
+        System.out.println("A5: " + new Circle(1, 2));
 //        Circle c4 = createCircleWithNull();
 //        System.out.println(c4.radius);
 
@@ -99,10 +100,10 @@ public class ObjectsAndClasses {
         Random random = new Random();
         System.out.println(random.nextInt());
         System.out.println(random.nextInt(10));
-        System.out.println(random.nextDouble()*10 + 5);
+        System.out.println(random.nextDouble() * 10 + 5);
 
         // Point2D
-        Point xy = new Point(3,4);
+        Point xy = new Point(3, 4);
         Point xy2 = xy.getLocation();
         System.out.println(xy2.getX() + ", " + xy2.getY());
 
@@ -165,19 +166,34 @@ public class ObjectsAndClasses {
                 new Tablet("Apple", "Air", 7500, "IPS", "13MP"),
                 new Tablet("Apple", "Pro", 15000, "FULL AMOLED", "13MP"),
         };
-        for (Tablet item: tablets) {
-            item.setPrice(item.getPrice() * 2 );
+        for (Tablet item : tablets) {
+            item.setPrice(item.getPrice() * 2);
             System.out.println(item);
         }
 
+        // method overloading
+        double[] doubleArray = {4.4, 3.3, 6.6, 1.1, 9.9};
+        int[] intArray = {4, 3, 6, 1, 9};
+        Sorting.bubbleSort(intArray);
+        Sorting.bubbleSort(doubleArray);
+        System.out.println(Arrays.toString(tablets));
+
+
+        // Abstraction: sistemler input-output ilişkisi sayesinde hatasız bir şekilde kullanılabilir. Inputun nasıl
+        // işlendiğinin bilinmesine gerek yok. Örn; gaza basarsan araba hareket eder, input= gaza basmak, output=arabanın hareket etmesi
+        // gelen inputun nasıl işlendiğinin bilinmesine gerek yok.
+
+        // Association: 2 classın birbirleri ile ilişkisi olması durumu
+        // Aggregation: Bir classın başka bir class'a property olarak sahip olması. diğer bir adıyla "has-a relationship"
     }
 
-    public static void printCircle(Circle circle){
+
+    public static void printCircle(Circle circle) {
         System.out.println("circle: radius = " + circle.radius + ", line color = " + circle.lineColor
-                            + ", line width = " + circle.lineWidth);
+                + ", line width = " + circle.lineWidth);
     }
 
-    public static Circle[] findCircleByRadius(Circle[] circles, int radius){
+    public static Circle[] findCircleByRadius(Circle[] circles, int radius) {
         int size = 0;
         // find size
         for (int i = 0; i < circles.length; i++) {
@@ -199,7 +215,7 @@ public class ObjectsAndClasses {
         return foundCircles; // eğer bulamazsan
     }
 
-    public static Circle createCircleWithNull(){
+    public static Circle createCircleWithNull() {
         Circle c = null;
         return c;
     }
