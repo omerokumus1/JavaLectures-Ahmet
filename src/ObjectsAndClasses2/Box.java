@@ -332,7 +332,7 @@ public class Box {
 
 
     public String toString(){
-        String content = "";
+        StringBuilder content = new StringBuilder("");
 
         // add books
         content = addBooksToContent(content);
@@ -346,38 +346,38 @@ public class Box {
         // add pencils
         content = addPencilsToContent(content);
 
-        return content;
+        return content.toString();
 
     }
 
-    private String addBooksToContent(String content) {
-        content += "There are " + numberOfBooks + " books. Which are:\n";
+    private StringBuilder addBooksToContent(StringBuilder content) {
+        content.append("There are ").append(numberOfBooks).append(" books. Which are:\n");
         for (int i = 0; i < numberOfBooks; i++) {
-            content += (i+1) + ". Book:\n" + books[i].toString() + "\n";
+            content.append(i + 1).append(". Book:\n").append(books[i].toString()).append("\n");
         }
         return content;
     }
 
-    private String addEarphoneToContent(String content) {
-        content += "There is " + numberOfEarphone + " earphone.\n";
+    private StringBuilder addEarphoneToContent(StringBuilder content) {
+        content.append("There is ").append(numberOfEarphone).append(" earphone.\n");
         for (int i = 0; i < numberOfEarphone; i++) {
-            content += earphone.toString() + "\n";
+            content.append(earphone.toString()).append("\n");
         }
         return content;
     }
 
-    private String addErasersToContent(String content) {
-        content += "There are " + numberOfErasers + " erasers. Which are:\n";
+    private StringBuilder addErasersToContent(StringBuilder content) {
+        content.append("There are ").append(numberOfErasers).append(" erasers. Which are:\n");
         for (int i = 0; i < numberOfErasers; i++) {
-            content += (i+1) + ". Eraser:\n" + erasers[i].toString() + "\n";
+            content.append(i + 1).append(". Eraser:\n").append(erasers[i].toString()).append("\n");
         }
         return content;
     }
 
-    private String addPencilsToContent(String content) {
-        content += "There are " + numberOfPencils + " pencils. Which are:\n";
+    private StringBuilder addPencilsToContent(StringBuilder content) {
+        content.append("There are ").append(numberOfPencils).append(" pencils. Which are:\n");
         for (int i = 0; i < numberOfPencils; i++) {
-            content += (i+1) + ". Pencil:\n" + pencils[i].toString() + "\n";
+            content.append(i + 1).append(". Pencil:\n").append(pencils[i].toString()).append("\n");
         }
         return content;
     }

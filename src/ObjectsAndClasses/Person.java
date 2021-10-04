@@ -2,7 +2,7 @@ package ObjectsAndClasses;
 
 public class Person {
     // data field
-    String name;
+    private String name;
     String surname;
     String gender;
     String eyeColor;
@@ -12,6 +12,17 @@ public class Person {
     String education;
     float height;
     float weight;
+
+    Person(){
+        // contructor chaining
+        System.out.println("Constructor of Person class");
+    }
+
+    Person(String name, String surname, String gender){
+        this.name = name;
+        this.surname = surname;
+        this.gender = gender;
+    }
 
     // Dinamik özellikler (methodlar) = behaviours = actions
     public void speak(){
@@ -26,5 +37,7 @@ public class Person {
         System.out.println("Running like Usain Bolt!");
     }
 
+    private void dummyF(){
 
+    }
 }

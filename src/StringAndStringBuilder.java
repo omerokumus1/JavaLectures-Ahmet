@@ -51,6 +51,10 @@ public class StringAndStringBuilder {
         str = String.valueOf(dst);
         System.out.println("from dst: " + str);
 
+        // substring
+        str.substring(3); // 3. indexten başlar sona kadar hepsini alır
+        str.substring(3,5); // 3. ve 4. indexleri alır, 5. indexi almaz
+
 
         // StringBuilder: stringlerden farklı değişebilir (mutable) olması
         // StringBuffer: StringBuilder ile aynıdır. Tek farkı concurrent operasyonlarda StringBuffer kullanılır.
@@ -62,5 +66,7 @@ public class StringAndStringBuilder {
         stringBuilder.deleteCharAt(0);
         System.out.println("string builder: " + stringBuilder);
 
+        // Eğer bir stringi sürekli değiştirmen gerekiyorsa StringBuilder kullan. Döngülerle string oluşturuluyorsa
+        // StringBuilder kullanılır.
     }
 }

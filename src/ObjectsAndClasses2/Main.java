@@ -26,26 +26,26 @@ public class Main {
         };
 
         Box box = new Box(books, earphone, erasers, pencils);
-//        System.out.println(box);
-
-        Book newBook = new Book("Peter Pan Ölmeli", "White", 550, "John Verdon", "Crime Novel");
-        box.addBook(newBook);
-
-        Book book = new Book("Kurt Gölü", "White", 450, "John Verdon", "Crime Novel");
-        box.removeBook(book);
-
-//        System.out.println(box);
-
-        box.setCalculator(new Calculator());
-
-        Calculator myCalculator = box.getCalculator();
-        myCalculator.pressButton("12");
-        myCalculator.pressButton("/");
-        myCalculator.pressButton("/");
-        myCalculator.pressButton("12");
-        myCalculator.calculate();
-        System.out.println(myCalculator.getResult());
-
+        System.out.println(box);
+//
+//        Book newBook = new Book("Peter Pan Ölmeli", "White", 550, "John Verdon", "Crime Novel");
+//        box.addBook(newBook);
+//
+//        Book book = new Book("Kurt Gölü", "White", 450, "John Verdon", "Crime Novel");
+//        box.removeBook(book);
+//
+////        System.out.println(box);
+//
+//        box.setCalculator(new Calculator());
+//
+//        Calculator myCalculator = box.getCalculator();
+//        myCalculator.pressButton("12");
+//        myCalculator.pressButton("/");
+//        myCalculator.pressButton("/");
+//        myCalculator.pressButton("12");
+//        myCalculator.calculate();
+//        System.out.println(myCalculator.getResult());
+//
 
 
     }
