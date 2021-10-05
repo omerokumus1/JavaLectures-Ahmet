@@ -38,6 +38,22 @@ public class Person {
     }
 
     private void dummyF(){
+    }
+    public static void dummyF2(){}
 
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", gender='" + gender + '\'' +
+                ", eyeColor='" + eyeColor + '\'' +
+                ", hairColor='" + hairColor + '\'' +
+                ", nation='" + nation + '\'' +
+                ", age=" + age +
+                ", education='" + education + '\'' +
+                ", height=" + height +
+                ", weight=" + weight +
+                '}';
     }
 }

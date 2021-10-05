@@ -10,4 +10,6 @@ public class Doctor extends Person {
     private void dummyFunction(){
 
     }
+
+
 }

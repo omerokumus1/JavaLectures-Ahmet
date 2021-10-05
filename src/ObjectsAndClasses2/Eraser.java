@@ -1,5 +1,7 @@
 package ObjectsAndClasses2;
 
+import java.util.Objects;
+
 public class Eraser {
     private String brand;
     private String color;
@@ -18,8 +20,8 @@ public class Eraser {
     }
 
     public boolean equals(Eraser eraser){
-        boolean areBrandsEqual = brand == eraser.brand;
-        boolean areColorsEqual = color == eraser.color;
+        boolean areBrandsEqual = Objects.equals(brand, eraser.brand);
+        boolean areColorsEqual = Objects.equals(color, eraser.color);
 
         return areBrandsEqual && areColorsEqual;
     }
