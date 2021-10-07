@@ -7,11 +7,11 @@ public class MagicalAttackEquipment extends AttackEquipment {
     private final static int MAGICAL_DAMAGE_UPPER_BOUND = 200;
     private final static int MAGICAL_DAMAGE_LOWER_BOUND = 10;
 
-    MagicalAttackEquipment(){
+    public MagicalAttackEquipment(){
         this(0,0,0);
     }
 
-    MagicalAttackEquipment(int price, int attackSpeed,int magicalDamage){
+    public MagicalAttackEquipment(int price, int attackSpeed,int magicalDamage){
         super(price, attackSpeed);
         setMagicalDamage(magicalDamage);
     }

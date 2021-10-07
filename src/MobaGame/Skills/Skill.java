@@ -3,15 +3,17 @@ package MobaGame.Skills;
 import MobaGame.Utility;
 
 public class Skill {
+    private String name;
     private int sp;
     private final static int SP_UPPER_BOUND = 100;
     private final static int SP_LOWER_BOUND = 20;
 
     Skill(){
-        this(0);
+        this("Unknown", 0);
     }
 
-    Skill(int sp){
+    Skill(String name, int sp){
+        this.name = name;
         setSp(sp);
     }
 

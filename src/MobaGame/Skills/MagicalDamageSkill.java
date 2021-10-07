@@ -7,11 +7,12 @@ public class MagicalDamageSkill extends Skill {
     private final static int MAGICAL_DAMAGE_PERCENT_UPPER_BOUND = 30;
     private final static int MAGICAL_DAMAGE_PERCENT_LOWER_BOUND = 5;
 
-    MagicalDamageSkill(){
-        this(0,0);
+    public MagicalDamageSkill(){
+        this("Unknown",0,0);
     }
-    MagicalDamageSkill(int sp, int magicalDamagePercent){
-        super(sp);
+
+    public MagicalDamageSkill(String name, int sp, int magicalDamagePercent){
+        super(name, sp);
         setMagicalDamagePercent(magicalDamagePercent);
     }
 

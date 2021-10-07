@@ -7,11 +7,11 @@ public class PhysicalDamageSkill extends Skill {
     private final static int PHYSICAL_DAMAGE_PERCENT_UPPER_BOUND = 30;
     private final static int PHYSICAL_DAMAGE_PERCENT_LOWER_BOUND = 5;
 
-    PhysicalDamageSkill(){
-        this(0,0);
+    public PhysicalDamageSkill(){
+        this("Unknown",0,0);
     }
-    PhysicalDamageSkill(int sp, int physicalDamagePercent){
-        super(sp);
+    public PhysicalDamageSkill(String name, int sp, int physicalDamagePercent){
+        super(name, sp);
         setPhysicalDamagePercent(physicalDamagePercent);
     }
 

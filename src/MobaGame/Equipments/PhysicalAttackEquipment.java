@@ -11,7 +11,7 @@ public class PhysicalAttackEquipment extends AttackEquipment {
         this(0,0,0);
     }
 
-    PhysicalAttackEquipment(int price, int attackSpeed, int physicalDamage) {
+    public PhysicalAttackEquipment(int price, int attackSpeed, int physicalDamage) {
         super(price, attackSpeed);
         setPhysicalDamage(physicalDamage);
     }

@@ -1,7 +1,7 @@
 package MobaGame;
 
 public class Utility {
-    public static int specifyAttributeValue(int lowerLimit, int upperLimit, int value){
+    public static int specifyAttributeValue(int lowerLimit, int upperLimit, int value) {
         if (value > upperLimit)
             return upperLimit;
         else if (value < lowerLimit)
