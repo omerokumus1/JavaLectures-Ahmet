@@ -15,10 +15,10 @@ public class SupportingSkill extends Skill {
     private final static int MAGICAL_DEFENCE_LOWER_BOUND = 0;
 
     SupportingSkill(){
-        this(0,0,0,0);
+        this("Unknown", 0,0,0,0);
     }
-    SupportingSkill(int sp, int hpIncrease, int physicalDefenceIncrease, int magicalDefenceIncrease){
-        super(sp);
+    SupportingSkill(String name, int sp, int hpIncrease, int physicalDefenceIncrease, int magicalDefenceIncrease){
+        super(name, sp);
         setHpIncrease(hpIncrease);
         setPhysicalDefenceIncrease(physicalDefenceIncrease);
         setMagicalDefenceIncrease(magicalDefenceIncrease);
