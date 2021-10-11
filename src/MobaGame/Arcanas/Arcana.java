@@ -1,17 +1,26 @@
 package MobaGame.Arcanas;
 
 public class Arcana {
-    /*
-        User owner;
-        int level;
-        public void levelUp(){
-            int fragments = owner.getBackPack().getArcanaFragments(); //500
+    private int level = 1;
+    private int neededArcanaFragment = 200;
+    private static final int[] neededFragmentsForUpdate = {200, 500, 800};
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void updateArcana() {
+        if (level <= 3) {
             level++;
-            owner.setBackPack(fragment - 150);
+            neededArcanaFragment = neededFragmentsForUpdate[level - 1];
         }
-    */
-/*    if(   dKey.isPressed()){
-        head = character.getHead();
-        head.turnRight(90);
-   }*/
+
+    }
+
+    public int getNeededArcanaFragment() {
+        return neededArcanaFragment;
+    }
+
+
+
 }
