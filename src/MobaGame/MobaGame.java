@@ -41,6 +41,9 @@ public class MobaGame {
                 new PhysicalAttackEquipment(1000, 25, 550),
                 new PhysicalAttackEquipment(1200, 20, 700)
         };
+
+        Equipment eq = equipments1[0];
+        System.out.println(eq.getClass());
 //
 //        Mage mage = new Mage("Paine", 2000, 400, 200,
 //                10, 500, 500, 50, 20, arcanas1,
