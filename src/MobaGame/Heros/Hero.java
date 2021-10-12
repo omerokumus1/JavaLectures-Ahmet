@@ -1,7 +1,7 @@
 package MobaGame.Heros;
 
 import MobaGame.Arcanas.Arcana;
-import MobaGame.Equipments.Equipment;
+import MobaGame.Equipments.*;
 import MobaGame.Skills.Skill;
 
 public class Hero {
@@ -45,32 +45,33 @@ public class Hero {
         this.baseAttackSpeed = baseAttackSpeed;
         this.currentAttackSpeed = baseAttackSpeed;
         this.equipments = equipments;
+        applyEquipment();
         this.arcanas = arcanas;
         this.skills = skills;
     }
 
-    public void setCurrentHp(int currentHp) {
-        this.currentHp = currentHp;
+    public void increaseCurrentHpBy(int currentHp) {
+        this.currentHp += currentHp;
     }
 
-    public void setCurrentSp(int currentSp) {
-        this.currentSp = currentSp;
+    public void increaseCurrentSpBy(int currentSp) {
+        this.currentSp += currentSp;
     }
 
-    public void setCurrentPhysicalDefence(int currentPhysicalDefence) {
-        this.currentPhysicalDefence = currentPhysicalDefence;
+    public void increaseCurrentPhysicalDefenceBy(int currentPhysicalDefence) {
+        this.currentPhysicalDefence += currentPhysicalDefence;
     }
 
-    public void setCurrentMagicalDefence(int currentMagicalDefence) {
-        this.currentMagicalDefence = currentMagicalDefence;
+    public void increaseCurrentMagicalDefenceBy(int currentMagicalDefence) {
+        this.currentMagicalDefence += currentMagicalDefence;
     }
 
     public void setCurrentSpeed(int currentSpeed) {
         this.currentSpeed = currentSpeed;
     }
 
-    public void setCurrentAttackSpeed(int currentAttackSpeed) {
-        this.currentAttackSpeed = currentAttackSpeed;
+    public void increaseCurrentAttackSpeedBy(int currentAttackSpeed) {
+        this.currentAttackSpeed += currentAttackSpeed;
     }
 
     public String getHeroName() {
@@ -143,5 +144,25 @@ public class Hero {
 
     public Skill[] getSkills() {
         return skills;
+    }
+
+    public void applyEquipment(Equipment equipment){
+
+    }
+
+    public void applyEquipment(){ // protected olabilir
+        for (int i = 0; i < equipments.length; i++) {
+            if (equipments[i] instanceof DefenceEquipment){
+                applyDefenceEquipment((DefenceEquipment)equipments[i]);
+            }
+
+        }
+    }
+
+    private void applyDefenceEquipment(DefenceEquipment defenceEquipment) {
+        increaseCurrentPhysicalDefenceBy(defenceEquipment.getPhysicalDefence());
+        increaseCurrentMagicalDefenceBy(defenceEquipment.getMagicalDefence());
+        increaseCurrentHpBy(defenceEquipment.getHp());
+        increaseCurrentSpBy(defenceEquipment.getSp());
     }
 }

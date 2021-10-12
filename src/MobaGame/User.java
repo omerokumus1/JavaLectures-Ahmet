@@ -35,6 +35,7 @@ public class User {
     // ********
     public void setHero(Hero hero) {
         this.hero = hero;
+
     }
 
     // ************
@@ -68,37 +69,40 @@ public class User {
         return backpack.getArcanaFragments();
     }
 
+
     public void buyEquipment(Equipment equipment) {
         backpack.buyEquipment(equipment);
+        subtractCoin(equipment.getPrice());
         // add equipment to hero
+        hero.applyEquipment();
     }
 
     private void addEquipmentToHero(Equipment equipment) {
 
     }
 
-    private Equipment getActualClassOfEquipment(Equipment equipment) {
-
-        if (equipment instanceof DefenceEquipment) {
-            return (DefenceEquipment) equipment;
-        } else if (equipment instanceof MagicalAttackEquipment) {
-            return (MagicalAttackEquipment) equipment;
-        } else if (equipment instanceof PhysicalAttackEquipment) {
-            return (PhysicalAttackEquipment) equipment;
-        } else if (equipment instanceof SpeedEquipment) {
-            return (SpeedEquipment) equipment;
-        }
-        return equipment;
-    }
-
-    private Hero getActualClassOfHero(){
-        if (hero instanceof Assassin)
-            return (Assassin) hero;
-        else if (hero instanceof Mage)
-            return (Mage) hero;
-        else if (hero instanceof Marksman)
-            return (Marksman) hero;
-    }
+//    private Equipment getActualClassOfEquipment(Equipment equipment) {
+//
+//        if (equipment instanceof DefenceEquipment) {
+//            return (DefenceEquipment) equipment;
+//        } else if (equipment instanceof MagicalAttackEquipment) {
+//            return (MagicalAttackEquipment) equipment;
+//        } else if (equipment instanceof PhysicalAttackEquipment) {
+//            return (PhysicalAttackEquipment) equipment;
+//        } else if (equipment instanceof SpeedEquipment) {
+//            return (SpeedEquipment) equipment;
+//        }
+//        return equipment;
+//    }
+//
+//    private Hero getActualClassOfHero(){
+//        if (hero instanceof Assassin)
+//            return (Assassin) hero;
+//        else if (hero instanceof Mage)
+//            return (Mage) hero;
+//        else if (hero instanceof Marksman)
+//            return (Marksman) hero;
+//    }
 
     // ************
     private void addAttackEquipmentToHero(AttackEquipment equipment) {

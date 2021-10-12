@@ -13,11 +13,8 @@ public class Backpack {
 
     Backpack(){
         arcanaFragments = new ArrayList<>();
-        arcanaFragments.ensureCapacity(800);
         equipments = new ArrayList<>();
-        equipments.ensureCapacity(4);
         arcanas = new ArrayList<>();
-        arcanas.ensureCapacity(9);
         coin = 0;
     }
 
