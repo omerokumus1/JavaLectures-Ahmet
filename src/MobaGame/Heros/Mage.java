@@ -11,24 +11,23 @@ public class Mage extends Hero {
     private int currentMagicalAttack;
     private int currentRange;
 
-    public Mage(String heroName, int baseHp, int baseSp, int baseSkillAttack, int baseRange, int basePhysicalDefence, int baseMagicalDefence, int baseSpeed, int baseAttackSpeed, Equipment[] equipments, Arcana[] arcanas, Skill[] skills, int baseMagicalAttack) {
-        super(heroName, baseHp, baseSp, baseSkillAttack, baseRange, basePhysicalDefence, baseMagicalDefence, baseSpeed, baseAttackSpeed, equipments, arcanas, skills);
+    public Mage(String heroName, int baseHp, int baseSp, int baseSkillAttack, int baseRange, int basePhysicalDefence, int baseMagicalDefence, int baseSpeed, int baseAttackSpeed, Skill[] skills, int baseMagicalAttack) {
+        super(heroName, baseHp, baseSp, baseSkillAttack, baseRange, basePhysicalDefence, baseMagicalDefence, baseSpeed, baseAttackSpeed, skills);
         this.baseMagicalAttack = baseMagicalAttack;
         this.currentMagicalAttack = baseMagicalAttack;
         this.currentRange = baseRange;
     }
 
     @Override
-    public void applyEquipment() {
-        super.applyEquipment();
-        Equipment[] equipments = getEquipments();
-        for (int i = 0; i < equipments.length; i++) {
-            if (equipments[i] instanceof MagicalAttackEquipment) {
-                applyAttackEquipment((MagicalAttackEquipment)equipments[i]);
-                applyMagicalAttackEquipment((MagicalAttackEquipment) equipments[i]);
-            }
+    public void applyEquipment(Equipment equipment) {
+        super.applyEquipment(equipment);
+        if (equipment instanceof MagicalAttackEquipment){
+            applyAttackEquipment((MagicalAttackEquipment) equipment);
+            applyMagicalAttackEquipment((MagicalAttackEquipment) equipment);
         }
     }
+
+
 
     private void applyMagicalAttackEquipment(MagicalAttackEquipment magicalAttackEquipment) {
         increaseCurrentMagicalAttackBy(magicalAttackEquipment.getMagicalAttack());

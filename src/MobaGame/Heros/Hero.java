@@ -20,15 +20,18 @@ public class Hero {
     private int currentSpeed;
     private int baseAttackSpeed;
     private int currentAttackSpeed;
+    private final static int MAX_EQUIPMENT = 4;
+    private final static int MAX_ARCANA = 10;
     private Equipment[] equipments;
     private Arcana[] arcanas;
     private Skill[] skills;
+
 
     Hero(){
 
     }
 
-    public Hero(String heroName, int baseHp, int baseSp, int baseSkillDamage, int baseRange, int basePhysicalDefence, int baseMagicalDefence, int baseSpeed, int baseAttackSpeed, Equipment[] equipments, Arcana[] arcanas, Skill[] skills) {
+    public Hero(String heroName, int baseHp, int baseSp, int baseSkillDamage, int baseRange, int basePhysicalDefence, int baseMagicalDefence, int baseSpeed, int baseAttackSpeed, Skill[] skills) {
         this.heroName = heroName;
         this.baseHp = baseHp;
         this.currentHp = baseHp;
@@ -44,11 +47,11 @@ public class Hero {
         this.currentSpeed = baseSpeed;
         this.baseAttackSpeed = baseAttackSpeed;
         this.currentAttackSpeed = baseAttackSpeed;
-        this.equipments = equipments;
-        applyEquipment();
-        this.arcanas = arcanas;
         this.skills = skills;
+        equipments = new Equipment[MAX_EQUIPMENT];
+        arcanas = new Arcana[MAX_ARCANA];
     }
+
 
     public void increaseCurrentHpBy(int currentHp) {
         this.currentHp += currentHp;
@@ -147,17 +150,12 @@ public class Hero {
     }
 
     public void applyEquipment(Equipment equipment){
-
+        if (equipment instanceof DefenceEquipment)
+            applyDefenceEquipment((DefenceEquipment) equipment);
     }
 
-    public void applyEquipment(){ // protected olabilir
-        for (int i = 0; i < equipments.length; i++) {
-            if (equipments[i] instanceof DefenceEquipment){
-                applyDefenceEquipment((DefenceEquipment)equipments[i]);
-            }
 
-        }
-    }
+
 
     private void applyDefenceEquipment(DefenceEquipment defenceEquipment) {
         increaseCurrentPhysicalDefenceBy(defenceEquipment.getPhysicalDefence());

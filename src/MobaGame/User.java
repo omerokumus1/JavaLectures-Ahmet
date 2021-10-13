@@ -74,7 +74,7 @@ public class User {
         backpack.buyEquipment(equipment);
         subtractCoin(equipment.getPrice());
         // add equipment to hero
-        hero.applyEquipment();
+        hero.applyEquipment(equipment);
     }
 
     private void addEquipmentToHero(Equipment equipment) {
