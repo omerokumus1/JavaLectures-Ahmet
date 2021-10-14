@@ -2,10 +2,7 @@ package MobaGame;
 
 import MobaGame.Arcanas.Arcana;
 import MobaGame.Equipments.*;
-import MobaGame.Heros.Assassin;
-import MobaGame.Heros.Hero;
-import MobaGame.Heros.Mage;
-import MobaGame.Heros.Marksman;
+import MobaGame.Heros.*;
 
 import java.util.ArrayList;
 
@@ -39,8 +36,17 @@ public class User {
     }
 
     // ************
-    public void attack() {
+    public void attack(User villain) {
+        if (hero instanceof PhysicalAttackHero){
+            villain.decreaseHpBy(((PhysicalAttackHero) hero).getCurrentPhysicalAttack());
+        }
+        else if (hero instanceof Mage){
+            villain.decreaseHpBy(((Mage) hero).getCurrentMagicalAttack());
+        }
+    }
 
+    private void decreaseHpBy(int attack) {
+        hero.decreaseHpBy(attack);
     }
 
     public void addCoin(int coin) {
@@ -57,12 +63,6 @@ public class User {
 
     public void buyArcanaFragment(int fragmentNumber) {
         backpack.buyArcanaFragment(fragmentNumber);
-//        ArrayList<ArcanaFragment> arcanaFragments = backpack.getArcanaFragments();
-//        for (int i = 0; i < fragmentNumber; i++) {
-//            arcanaFragments.add(new ArcanaFragment());
-//        }
-//        int totalCost = fragmentNumber * ArcanaFragment.cost;
-//        subtractCoin(totalCost);
     }
 
     public ArrayList<ArcanaFragment> getArcanaFragments() {
@@ -77,37 +77,6 @@ public class User {
         hero.applyEquipment(equipment);
     }
 
-    private void addEquipmentToHero(Equipment equipment) {
-
-    }
-
-//    private Equipment getActualClassOfEquipment(Equipment equipment) {
-//
-//        if (equipment instanceof DefenceEquipment) {
-//            return (DefenceEquipment) equipment;
-//        } else if (equipment instanceof MagicalAttackEquipment) {
-//            return (MagicalAttackEquipment) equipment;
-//        } else if (equipment instanceof PhysicalAttackEquipment) {
-//            return (PhysicalAttackEquipment) equipment;
-//        } else if (equipment instanceof SpeedEquipment) {
-//            return (SpeedEquipment) equipment;
-//        }
-//        return equipment;
-//    }
-//
-//    private Hero getActualClassOfHero(){
-//        if (hero instanceof Assassin)
-//            return (Assassin) hero;
-//        else if (hero instanceof Mage)
-//            return (Mage) hero;
-//        else if (hero instanceof Marksman)
-//            return (Marksman) hero;
-//    }
-
-    // ************
-    private void addAttackEquipmentToHero(AttackEquipment equipment) {
-
-    }
 
     public ArrayList<Equipment> getEquipments() {
         return backpack.getEquipments();
@@ -115,7 +84,9 @@ public class User {
 
     public void buyArcana(Arcana arcana) {
         backpack.buyArcana(arcana);
+        subtractCoin(arcana.getCost());
         // add arcana to hero
+        hero.applyArcana(arcana);
     }
 
     public ArrayList<Arcana> getArcanas() {

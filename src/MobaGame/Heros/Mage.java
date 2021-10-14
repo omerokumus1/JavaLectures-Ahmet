@@ -1,9 +1,10 @@
 package MobaGame.Heros;
 
 import MobaGame.Arcanas.Arcana;
+import MobaGame.Arcanas.MagicalAttackArcana;
+import MobaGame.Arcanas.PhysicalAttackArcana;
 import MobaGame.Equipments.Equipment;
 import MobaGame.Equipments.MagicalAttackEquipment;
-import MobaGame.Equipments.PhysicalAttackEquipment;
 import MobaGame.Skills.Skill;
 
 public class Mage extends Hero {
@@ -16,6 +17,18 @@ public class Mage extends Hero {
         this.baseMagicalAttack = baseMagicalAttack;
         this.currentMagicalAttack = baseMagicalAttack;
         this.currentRange = baseRange;
+    }
+
+    @Override
+    public void applyArcana(Arcana arcana) {
+        super.applyArcana(arcana);
+        if (arcana instanceof MagicalAttackArcana){
+            applyMagicalAttackArcana((MagicalAttackArcana) arcana);
+        }
+    }
+
+    private void applyMagicalAttackArcana(MagicalAttackArcana physicalAttackArcana) {
+        increaseCurrentMagicalAttackBy(physicalAttackArcana.getAttack());
     }
 
     @Override

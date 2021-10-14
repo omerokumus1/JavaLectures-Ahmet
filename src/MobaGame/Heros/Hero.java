@@ -1,6 +1,6 @@
 package MobaGame.Heros;
 
-import MobaGame.Arcanas.Arcana;
+import MobaGame.Arcanas.*;
 import MobaGame.Equipments.*;
 import MobaGame.Skills.Skill;
 
@@ -11,21 +11,20 @@ public class Hero {
     private int baseSp;
     private int currentSp;
     private int baseSkillDamage;
-    private int baseRange;
+    private int baseRange; // silinebilir
     private int basePhysicalDefence;
     private int baseMagicalDefence;
     private int currentPhysicalDefence;
     private int currentMagicalDefence;
-    private int baseSpeed;
-    private int currentSpeed;
+    private int baseSpeed; // silinebilir
+    private int currentSpeed; // silinebilir
     private int baseAttackSpeed;
     private int currentAttackSpeed;
     private final static int MAX_EQUIPMENT = 4;
-    private final static int MAX_ARCANA = 10;
+    private final static int MAX_ARCANA = 8;
     private Equipment[] equipments;
     private Arcana[] arcanas;
     private Skill[] skills;
-
 
     Hero(){
 
@@ -154,13 +153,32 @@ public class Hero {
             applyDefenceEquipment((DefenceEquipment) equipment);
     }
 
-
-
-
     private void applyDefenceEquipment(DefenceEquipment defenceEquipment) {
         increaseCurrentPhysicalDefenceBy(defenceEquipment.getPhysicalDefence());
         increaseCurrentMagicalDefenceBy(defenceEquipment.getMagicalDefence());
         increaseCurrentHpBy(defenceEquipment.getHp());
         increaseCurrentSpBy(defenceEquipment.getSp());
+    }
+
+    public void applyArcana(Arcana arcana) {
+        if (arcana instanceof MagicalDefenceArcana){
+            applyMagicalDefenceArcana((MagicalDefenceArcana) arcana);
+        }
+        else if (arcana instanceof PhysicalDefenceArcana){
+            applyPhysicalDefenceArcana((PhysicalDefenceArcana) arcana);
+        }
+    }
+
+
+    private void applyPhysicalDefenceArcana(PhysicalDefenceArcana physicalDefenceArcana) {
+        increaseCurrentPhysicalDefenceBy(physicalDefenceArcana.getDefence());
+    }
+
+    private void applyMagicalDefenceArcana(MagicalDefenceArcana magicalDefenceArcana){
+        increaseCurrentMagicalDefenceBy(magicalDefenceArcana.getDefence());
+    }
+
+    public void decreaseHpBy(int attack) {
+        currentHp -= attack;
     }
 }
