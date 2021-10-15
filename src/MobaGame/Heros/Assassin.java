@@ -10,8 +10,8 @@ import MobaGame.Skills.Skill;
 public class Assassin extends PhysicalAttackHero {
 
 
-    public Assassin(String heroName, int baseHp, int baseSp, int baseSkillDamage, int baseRange, int basePhysicalDefence, int baseMagicalDefence, int baseSpeed, int baseAttackSpeed, Skill[] skills, int basePhysicalAttack) {
-        super(heroName, baseHp, baseSp, baseSkillDamage, baseRange, basePhysicalDefence, baseMagicalDefence, baseSpeed, baseAttackSpeed, skills, basePhysicalAttack);
+    public Assassin(String heroName, int baseHp, int baseSp, int basePhysicalDefence, int baseMagicalDefence, Skill[] skills, int basePhysicalAttack) {
+        super(heroName, baseHp, baseSp, basePhysicalDefence, baseMagicalDefence, skills, basePhysicalAttack);
     }
 
 

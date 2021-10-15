@@ -8,11 +8,11 @@ public class PhysicalAttackEquipment extends AttackEquipment {
     private final static int PHYSICAL_DAMAGE_LOWER_BOUND = 30;
 
     PhysicalAttackEquipment(){
-        this(0,0,0);
+        this(0,0);
     }
 
-    public PhysicalAttackEquipment(int price, int attackSpeed, int physicalAttack) {
-        super(price, attackSpeed);
+    public PhysicalAttackEquipment(int price, int physicalAttack) {
+        super(price);
         setPhysicalAttack(physicalAttack);
     }
 

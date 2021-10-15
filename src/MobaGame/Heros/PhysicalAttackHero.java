@@ -12,22 +12,10 @@ public class PhysicalAttackHero extends Hero{
     private int currentPhysicalAttack;
 
 
-    public PhysicalAttackHero(String heroName, int baseHp, int baseSp, int baseSkillDamage, int baseRange, int basePhysicalDefence, int baseMagicalDefence, int baseSpeed, int baseAttackSpeed, Skill[] skills, int basePhysicalAttack) {
-        super(heroName, baseHp, baseSp, baseSkillDamage, baseRange, basePhysicalDefence, baseMagicalDefence, baseSpeed, baseAttackSpeed, skills);
+    public PhysicalAttackHero(String heroName, int baseHp, int baseSp, int basePhysicalDefence, int baseMagicalDefence, Skill[] skills, int basePhysicalAttack) {
+        super(heroName, baseHp, baseSp, basePhysicalDefence, baseMagicalDefence, skills);
         this.basePhysicalAttack = basePhysicalAttack;
         this.currentPhysicalAttack = basePhysicalAttack;
-    }
-
-    @Override
-    public void applyArcana(Arcana arcana) {
-        super.applyArcana(arcana);
-        if (arcana instanceof PhysicalAttackArcana){
-            applyPhysicalAttackArcana((PhysicalAttackArcana) arcana);
-        }
-    }
-
-    private void applyPhysicalAttackArcana(PhysicalAttackArcana physicalAttackArcana) {
-        increaseCurrentPhysicalAttackBy(physicalAttackArcana.getAttack());
     }
 
     @Override
@@ -40,7 +28,7 @@ public class PhysicalAttackHero extends Hero{
     }
 
     private void applyAttackEquipment(AttackEquipment attackEquipment) {
-        increaseCurrentAttackSpeedBy(attackEquipment.getAttackSpeed());
+
     }
 
     private void applyPhysicalAttackEquipment(PhysicalAttackEquipment physicalAttackEquipment) {

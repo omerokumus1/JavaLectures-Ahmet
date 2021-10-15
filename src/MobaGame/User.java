@@ -61,13 +61,6 @@ public class User {
         return backpack.getCoin();
     }
 
-    public void buyArcanaFragment(int fragmentNumber) {
-        backpack.buyArcanaFragment(fragmentNumber);
-    }
-
-    public ArrayList<ArcanaFragment> getArcanaFragments() {
-        return backpack.getArcanaFragments();
-    }
 
 
     public void buyEquipment(Equipment equipment) {
@@ -82,19 +75,5 @@ public class User {
         return backpack.getEquipments();
     }
 
-    public void buyArcana(Arcana arcana) {
-        backpack.buyArcana(arcana);
-        subtractCoin(arcana.getCost());
-        // add arcana to hero
-        hero.applyArcana(arcana);
-    }
-
-    public ArrayList<Arcana> getArcanas() {
-        return backpack.getArcanas();
-    }
-
-    public void updateArcana() {
-        backpack.updateArcana();
-    }
 
 }

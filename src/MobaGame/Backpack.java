@@ -7,27 +7,14 @@ import java.util.ArrayList;
 
 public class Backpack {
     private int coin;
-    private ArrayList<ArcanaFragment> arcanaFragments;
     private ArrayList<Equipment> equipments;
-    private ArrayList<Arcana> arcanas;
 
     Backpack(){
-        arcanaFragments = new ArrayList<>();
         equipments = new ArrayList<>();
-        arcanas = new ArrayList<>();
         coin = 0;
     }
 
-    public void buyArcana(Arcana arcana){
-        if (arcanas.size() <= 9)
-            arcanas.add(arcana);
-        else
-            System.out.println("Maksimum number of equipments are bought.");
-    }
 
-    public ArrayList<Arcana> getArcanas() {
-        return arcanas;
-    }
 
     public void buyEquipment(Equipment equipment){
         if (equipments.size() <= 4){
@@ -41,17 +28,6 @@ public class Backpack {
         return equipments;
     }
 
-    public ArrayList<ArcanaFragment> getArcanaFragments() {
-        return arcanaFragments;
-    }
-
-    public void buyArcanaFragment(int fragmentNumber){
-        for (int i = 0; i < fragmentNumber; i++) {
-            arcanaFragments.add(new ArcanaFragment());
-        }
-        int totalCost = fragmentNumber * ArcanaFragment.cost;
-        subtractCoin(totalCost);
-    }
 
     public int getCoin() {
         return coin;
@@ -65,23 +41,5 @@ public class Backpack {
         this.coin = coin;
     }
 
-    private void subtractArcanaFragment(int fragmentNumber){
-        int length = arcanaFragments.size();
-        int limit = length-1-fragmentNumber;
-        for (int i = length-1; i >= limit; i--) {
-            arcanaFragments.set(i, null);
-        }
-    }
 
-    public void updateArcana(){
-        int length = arcanas.size();
-        Arcana arcana;
-        for (int i = 0; i < length; i++) {
-            arcana = arcanas.get(i);
-            if (arcana.getNeededArcanaFragment() <= arcanaFragments.size()){
-                arcana.updateArcana();
-                subtractArcanaFragment(arcana.getNeededArcanaFragment());
-            }
-        }
-    }
 }

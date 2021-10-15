@@ -11,10 +11,6 @@ public class Arcana {
     }
 
     public void updateArcana() {
-        if (level <= 3) {
-            level++;
-            neededArcanaFragment = neededFragmentsForUpdate[level - 1];
-        }
 
     }
 
