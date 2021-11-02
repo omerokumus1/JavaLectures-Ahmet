@@ -21,16 +21,16 @@ public class DistinctNumbers {
 
     public static void parseStringIntoArray() {
         String str = readInput();
-        int arrSize = findSize(str);
-        int[] numberExtracted = initializeArray(arrSize, str);
-        printResult(numberExtracted);
+        int arrSize = findArraySizeFrom(str);
+        int[] numbersExtracted = initializeArray(arrSize, str); // atomicity
+        printResult(numbersExtracted);
     }
 
     private static void printResult(int[] numberExtracted) {
         System.out.println(Arrays.toString(numberExtracted));
     }
 
-    private static int findSize(String str) {
+    private static int findArraySizeFrom(String str) {
         int numberCount = 0;
         for (int i = 0; i < str.length(); i++) {
             if (isAProperDigit(str, i))
@@ -55,12 +55,11 @@ public class DistinctNumbers {
         return false;
     }
 
-
-    public static int[] initializeArray(int size, String str) {
+    public static int[] initializeArray(int size, String str) { // db, af, bp
         int[] arr = new int[size];
         int index = 0;
         for (int i = 0; i < str.length(); i++) {
-            if (isAProperDigit(str, i)) {
+            if (isAProperDigit(str, i)) { 
                 arr[index] = Integer.parseInt(str.charAt(i) + "");
                 index++;
             }
