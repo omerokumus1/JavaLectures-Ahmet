@@ -1,5 +1,6 @@
 package Interfaces;
 
 public interface Movable {
-    public boolean canMove();
+    final static int data = 0;
+    public abstract boolean canMove();
 }

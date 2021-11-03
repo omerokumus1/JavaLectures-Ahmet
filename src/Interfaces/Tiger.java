@@ -1,6 +1,6 @@
 package Interfaces;
 
-public class Tiger implements Edible, Movable{
+public class Tiger implements Edible, Movable, Cloneable{
     @Override
     public void howToEat() {
         System.out.println("You cannot eat me.");
@@ -10,4 +10,5 @@ public class Tiger implements Edible, Movable{
     public boolean canMove() {
         return true;
     }
+
 }
