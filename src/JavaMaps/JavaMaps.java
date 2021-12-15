@@ -1,9 +1,6 @@
 package JavaMaps;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class JavaMaps {
     public static void main(String[] args) {
@@ -22,5 +19,10 @@ public class JavaMaps {
                 keySet) {
             System.out.println("Key: " + key + ", Value:" + characterMap.get(key));
         }
+
+        Set<Integer> numbers = new HashSet<>();
+        numbers.add(1);
+        numbers.add(1);
+        numbers.add(1);
     }
 }

@@ -1,4 +1,4 @@
-package JavaGenerics;
+package Ch19_JavaGenerics;
 
 import java.util.ArrayList;
 
