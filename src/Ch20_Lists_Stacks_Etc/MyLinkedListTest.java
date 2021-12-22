@@ -24,7 +24,11 @@ public class MyLinkedListTest {
         myLinkedList.add(6);
         myLinkedList.add(7);
         myLinkedList.printList();
-        System.out.println("3. index: " + myLinkedList.get(3));
-        System.out.println("15. index: " + myLinkedList.get(15));
+//        System.out.println("3. index: " + myLinkedList.get(3));
+//        System.out.println("15. index: " + myLinkedList.get(15));
+        System.out.println("new linked list after insert");
+        myLinkedList.insert(5, 1);
+        myLinkedList.insert(7, 0);
+        myLinkedList.printList();
     }
 }

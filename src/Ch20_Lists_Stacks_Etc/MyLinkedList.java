@@ -31,6 +31,49 @@ public class MyLinkedList {
 
     }
 
+    public void insert(int data, int index){
+        insert(new MyNode(data), index);
+    }
+
+    public void insert(MyNode node, int index) throws IndexOutOfBoundsException{
+        if (index < 0)
+            throw new IndexOutOfBoundsException();
+        if (index == 0){
+            addToStart(node);
+        }
+        else {
+            MyNode iter = getNode(index-1);
+            if (iter == null)
+                throw new IndexOutOfBoundsException();
+            else {
+                node.next = iter.next;
+                iter.next = node;
+            }
+        }
+    }
+
+    private void addToStart(MyNode node){
+        node.next = start;
+        start = node;
+    }
+
+    private MyNode getNode(int index){
+        MyNode iter = start;
+        int counter = 0;
+        while (iter != null) {
+            if (counter == index)
+                return iter;
+
+            iter = iter.next;
+            counter++;
+        }
+        return null;
+    }
+
+
+    public void remove(int index){
+
+    }
 
 
     private MyNode getLastNode() {
@@ -41,6 +84,8 @@ public class MyLinkedList {
     }
 
     public int get(int index) throws IndexOutOfBoundsException {
+        if (index < 0 )
+            throw new IndexOutOfBoundsException();
         int counter = 0;
         MyNode iter = start;
         while (iter != null){
